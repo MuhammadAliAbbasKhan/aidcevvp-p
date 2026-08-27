@@ -1,0 +1,94 @@
+================================================================================
+MASTER AI PROMPT: AIDCEVVPP FULL-STACK WEBSITE CLONE & APPLICATION BUILDER BLUEPRINT
+================================================================================
+
+[SYSTEM ROLE INSTRUCTION]
+You are an expert Senior Full-Stack Software Engineer, AI Systems Control Architect, and UI/UX Designer.
+Your task is to build a complete, 100% production-ready web application project that replicates the exact design, layout, admin security, dual database sync, consolidated Stripe pricing checkout, mobile-bounded authentication modals, and interactive 2D AIDC Thermal & EV VPP Power Optimizer canvas for AIDCEVVPP (Advanced AI Data Center Electric Vehicle Virtual Power Plant Platform - AISPEX.com Replica).
+
+Follow every technical specification and implementation detail below precisely.
+
+================================================================================
+1. HEADER & FOOTER REPLICA SPECIFICATIONS (AISPEX.COM LAYOUT)
+================================================================================
+A. HEADER DESIGN & NAVIGATION:
+   - Brand Logo: AIDCEVVPP electric cyan typography (`#00C4EE`) with a bright yellow accent (`#FFD100`) tick mark on the last letter, matching the exact AISPEX logo aesthetic.
+   - Header Bar (Solid Black Backdrop #000000, 1px solid #1E293B border-bottom, fixed top 0, z-index 999):
+     * Left: Brand logo `aidcevvpp`.
+     * Navigation Links: "HOME", "AIDC", "THERMAL", "OUR MISSION", "MORE ▾", "CONTACT US".
+     * Dropdowns under "MORE ▾": EV VPP Platform, Energy Microgrid, Products & Solutions, News & Blog, Admin Dashboard.
+     * Active Page Indicator: Underlined active link style matching AISPEX header.
+     * Mobile Responsiveness: 100% mobile-friendly with slide-out drawer menu on smaller viewports.
+   - Header Spacing & Overlap Prevention:
+     * Header container is fixed (`position: fixed`, `top: 0`, `zIndex: 999`).
+     * A header spacer element `<div style={{ height: '70px' }} />` ensures 0% content clipping under the fixed navbar.
+
+B. FOOTER DESIGN (DEEP BLACK #000000 BACKDROP):
+   - Center Copyright: "Copyright © 2026 AIDCEVVPP - All Rights Reserved."
+   - Sub-Navigation Links: "Our Mission" and "Contact Us" centered below copyright.
+   - Bottom-Left Security Widget: TrustedSite green verified badge (`✔ TrustedSite`).
+   - Bottom-Right Interactive Widget: Floating chat speech bubble icon (`💬`).
+
+================================================================================
+2. FRONTEND ARCHITECTURE, AUTHENTICATION SYSTEM & MODAL VIEWPORT BOUNDING
+================================================================================
+- Stack: React 18 + Vite 5 SPA (JavaScript), Lucide Icons, Axios API Client, HTML5 Canvas 2D.
+- SPA Routing: State-driven page manager in App.jsx rendering sub-routes (Home, AIDC, Thermal, Our Mission, EV VPP, Shop & Pricing, Blog, Contact, Admin Dashboard, Privacy Policy, Terms).
+- Toast Notification System (ToastNotification.jsx & ToastContext.jsx): Intercepts API payloads and displays color-coded popup notifications (success green, error red, warning amber, info cyan).
+- Bounded Modal System & Close Cross Button Rule:
+  * All modal dialogs (AuthModal.jsx, DemoModal.jsx, CheckoutModal.jsx) MUST be strictly bounded.
+  * Modal Container Styles: Enforces `maxHeight: '90vh'`, `overflowY: 'auto'`, `width: '92vw'`, `max-width: '580px'`, `margin: 'auto'`, and `position: 'relative'`.
+  * Top-Right Close Cross Button (`✕`): Circular close button (`width: 32px`, `height: 32px`, `background: #1E293B`, `color: #FFFFFF`, `border-radius: 50%`) that turns red (`#DA2B1F`) on hover.
+  * AuthModal.jsx: Full Sign In and Registration forms synced with Django REST API & MongoDB Atlas cloud database.
+  * DemoModal.jsx: Direct demo booking form with facility megawatt capacity selector, company name, contact email, and deployment timeline.
+
+- 2D Interactive AIDC Thermal & EV VPP Power Optimizer Engine (AIDCEVVPPControlCanvas.jsx):
+  * Canvas Rendering: HTML5 2D Canvas with dark industrial cleanroom background (#0d1117).
+  * Data Center Telemetry: Visual rendering of server rack heatmaps (45°C - 85°C), liquid cooling flow rate, EV VPP battery storage discharge, PUE gauge (1.04 - 1.35), and dynamic Tokens per Watt performance curve.
+  * Interactive Control Sliders: Controls for GPU Power Load (1 - 100 MW), Coolant Flow Rate (100 - 1,000 L/min), EV VPP Storage Discharge (500 - 5,000 kW), Dynamic Token Allocation.
+  * AI Agent Automation Toggles: "Autonomous AIDC Mode Active", "PUE Optimizer Engine", "EV VPP Peak Shaving", "Thermal Emergency Guard".
+  * Real-Time Telemetry Ticker: Live animation displaying CPU/GPU temperature variations and energy cost savings.
+
+================================================================================
+3. PRICING ARCHITECTURE & CONSOLIDATED STRIPE CHECKOUT ENGINE
+================================================================================
+- Free Basic Simulator Policy:
+  * The 2D AIDC & EV VPP Telemetry Simulator canvas is 100% FREE for public exploration.
+  * Callout Banner: "AIDCEVVPP 2D Telemetry Simulator is 100% Free for Evaluation! Upgrade to active AI agent control for live facility deployments."
+
+- Consolidated Single Form Pricing Tiers:
+  * **Basic AIDC Agent**: **$100 USD / month** ($80 USD yearly)
+    - Modular AIDC facilities up to 5MW, baseline thermal optimization agent, 24/7 telemetry monitoring.
+  * **Professional AIDC & Liquid Cooling**: **$150 USD / month** ($120 USD yearly)
+    - Facilities up to 25MW, dynamic PUE + liquid cooling CDU optimization engine, automated EV VPP integration.
+  * **Enterprise Global Fleet & VPP Grid**: **$200 USD / month** ($160 USD yearly)
+    - Unlimited MW capacity, multi-site cluster orchestration, custom control policy training, 24/7 SLA AI Thermal & VPP Engineer.
+
+- Centralized Payment Checkout & Real Data Validation (CheckoutModal.jsx):
+  * Payment Modal triggered from plan selection.
+  * Input Validation: Cardholder Name (min 3 chars), Email (contains `@`), Card Number (15-16 digits), Expiration Date (`MM/YY`), CVC (3-4 digits).
+  * Stores subscription state (`is_active: true`, `plan_tier`, `paid_date`) in `localStorage` to prevent duplicate billing.
+
+================================================================================
+4. DJANGO BACKEND & DUAL DATABASE ENGINE: SQLITE + MONGODB ATLAS CLOUD SYNC
+================================================================================
+- Stack: Python 3.12, Django 5.x, Django REST Framework (DRF), WhiteNoise WSGI static server, Gunicorn.
+- REST API Views (`api/views.py`):
+  * Handles authentication, subscription payments, demo requests, and telemetry logs.
+  * Extracts queued messages and returns them inside JSON payload for Toast Notification alerts.
+- Dual Database Sync (`db_mongo.py`):
+  * Primary DB: Local SQLite (`db.sqlite3`).
+  * Cloud DB: Real-time sync to MongoDB Cloud Atlas (`aidcevvpp_db`) using PyMongo driver.
+- Admin Authorization & Passcode System:
+  * Executive Control Endpoint: `/api/v1/admin/analytics/`.
+  * Header Check: `X-Admin-Passcode` verified against secret `aliabbas1234578!`.
+
+================================================================================
+5. DEPLOYMENT & VERIFICATION
+================================================================================
+- Run Backend: `python manage.py runserver 8002` inside `backend` folder.
+- Run Frontend: `npm run dev` inside `frontend` folder.
+
+================================================================================
+END OF MASTER BLUEPRINT PROMPT
+================================================================================
